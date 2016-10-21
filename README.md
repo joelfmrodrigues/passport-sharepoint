@@ -58,18 +58,11 @@ authenticate requests.
 For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 
-    app.get('/auth/sharepoint',
-      passport.authenticate('sharepoint'),
-      function(req, res){
-        // The request will be redirected to SharePoint for authentication, so
-        // this function will not be called.
-      });
-
-    app.get('/auth/sharepoint/callback', 
+      app.post('/auth/sharepoint',
       passport.authenticate('sharepoint', { failureRedirect: '/login' }),
-      function(req, res) {
-        // Successful authentication, redirect home.
-        res.redirect('/');
+      function (req, res) {
+          // Successful authentication, redirect home.
+          res.redirect('/');
       });
       
 ## Credits
